@@ -1,4 +1,6 @@
 # SchnittVonEbenen
-Bonusaufgabe für Lineare Algebra, FHNW
+Bonusaufgabe für Lineare Algebra und Geometrie, FHNW
 
-Jan Müller, Benjamin Zumbrunn
+## Autoren
+Jan Müller: Mathematik
+Benjamin Zumbrunn: Implementierung
