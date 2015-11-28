@@ -1,2 +1,4 @@
-# PlaneCrossSection
-Bonus task for linear algebra class, FHNW Brugg
+# SchnittVonEbenen
+Bonusaufgabe für Lineare Algebra, FHNW
+
+Jan Müller, Benjamin Zumbrunn
