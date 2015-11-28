@@ -13,74 +13,72 @@ public class SchnittVonEbenen {
 
 		sc = new Scanner(System.in);
 
-		// Erste Ebene
-		ebene1Start();
-		int auswahl1 = sc.nextInt();
+		programmStart();
+		int funktionsAuswahl = sc.nextInt();
 
-		if (auswahl1 == 1) {
-			ebene1 = parameterFormEingabe();
-			
-			ebene1.parameterFormAusgabe();
-			ebene1.normalenFormAusgabe();
-			ebene1.koordinatenFormAusgabe();
-		} else if (auswahl1 == 2) {
-			ebene1 = normalenFormEingabe();
-			
-			ebene1.normalenFormAusgabe();
-			ebene1.koordinatenFormAusgabe();
-			ebene1.parameterFormAusgabe();
-		} else if (auswahl1 == 3) {
-			ebene1 = koordinatenFormEingabe();
-			
-			ebene1.koordinatenFormAusgabe();
-			ebene1.parameterFormAusgabe();
-			ebene1.normalenFormAusgabe();
+		if (funktionsAuswahl == 1) { // Eine Ebene transformieren
+			ebene1Start();
+		} else if (funktionsAuswahl == 2) { // Schnitt zweier Ebenen untersuchen
+			// Erste Ebene
+			ebene1Start();
+			// Zweite Ebene
+			ebene2Start();
+
+			// Schnitt der Ebenen
+			schnitt = new Schnitt(ebene1, ebene2);
+			schnitt.schnittAusgabe();
 		} else {
-			System.out.println("Falsche Eingabe der ersten Ebene");
+			System.out.println("Falsche Eingabe, Programm wird beendet.");
+			System.exit(1);
 		}
-
-		// Zweite Ebene
-		ebene2Start();
-		int auswahl2 = sc.nextInt();
-
-		if (auswahl2 == 1) {
-			ebene2 = parameterFormEingabe();
-			
-			ebene2.parameterFormAusgabe();
-			ebene2.normalenFormAusgabe();
-			ebene2.koordinatenFormAusgabe();
-		} else if (auswahl2 == 2) {
-			ebene2 = normalenFormEingabe();
-			
-			ebene2.normalenFormAusgabe();
-			ebene2.koordinatenFormAusgabe();
-			ebene2.parameterFormAusgabe();
-		} else if (auswahl2 == 3) {
-			ebene2 = koordinatenFormEingabe();
-			
-			ebene2.koordinatenFormAusgabe();
-			ebene2.parameterFormAusgabe();
-			ebene2.normalenFormAusgabe();
-		} else {
-			System.out.println("Falsche Eingabe der zweiten Ebene");
-		}
-		
-		// Schnitt der Ebenen
-		schnitt = new Schnitt(ebene1, ebene2);
-		schnitt.schnittAusgabe();
 
 		sc.close();
+	}
+
+	/**
+	 * Prints bei Start des Programmes.
+	 */
+	private static void programmStart() {
+		System.out.println("\n--- Schnitt von Ebenen ---");
+		System.out.println("Was möchten Sie tun? [1 / 2]");
+		System.out.println("1: Ebene in andere Formen umwandeln");
+		System.out.println("2: Schnitt von zwei Ebenen untersuchen");
 	}
 
 	/**
 	 * Prints für Ebene 1.
 	 */
 	private static void ebene1Start() {
-		System.out.println("\n--- Schnitt von Ebenen ---\n");
+		System.out.println("\nGeben Sie eine Ebene ein.\n");
 		System.out.println("Welche Form geben Sie ein? [1 / 2 / 3]");
 		System.out.println("1: Parameterform");
 		System.out.println("2: Normalenform");
 		System.out.println("3: Koordinatenform");
+
+		int ebene1Auswahl = sc.nextInt();
+
+		if (ebene1Auswahl == 1) {
+			ebene1 = parameterFormEingabe();
+
+			ebene1.parameterFormAusgabe();
+			ebene1.normalenFormAusgabe();
+			ebene1.koordinatenFormAusgabe();
+		} else if (ebene1Auswahl == 2) {
+			ebene1 = normalenFormEingabe();
+
+			ebene1.normalenFormAusgabe();
+			ebene1.koordinatenFormAusgabe();
+			ebene1.parameterFormAusgabe();
+		} else if (ebene1Auswahl == 3) {
+			ebene1 = koordinatenFormEingabe();
+
+			ebene1.koordinatenFormAusgabe();
+			ebene1.parameterFormAusgabe();
+			ebene1.normalenFormAusgabe();
+		} else {
+			System.out.println("Falsche Eingabe der ersten Ebene, Programm wird beendet.");
+			System.exit(1);
+		}
 	}
 
 	/**
@@ -92,10 +90,36 @@ public class SchnittVonEbenen {
 		System.out.println("1: Parameterform");
 		System.out.println("2: Normalenform");
 		System.out.println("3: Koordinatenform");
+
+		int ebene2Auswahl = sc.nextInt();
+
+		if (ebene2Auswahl == 1) {
+			ebene2 = parameterFormEingabe();
+
+			ebene2.parameterFormAusgabe();
+			ebene2.normalenFormAusgabe();
+			ebene2.koordinatenFormAusgabe();
+		} else if (ebene2Auswahl == 2) {
+			ebene2 = normalenFormEingabe();
+
+			ebene2.normalenFormAusgabe();
+			ebene2.koordinatenFormAusgabe();
+			ebene2.parameterFormAusgabe();
+		} else if (ebene2Auswahl == 3) {
+			ebene2 = koordinatenFormEingabe();
+
+			ebene2.koordinatenFormAusgabe();
+			ebene2.parameterFormAusgabe();
+			ebene2.normalenFormAusgabe();
+		} else {
+			System.out.println("Falsche Eingabe der zweiten Ebene, Programm wird beendet.");
+			System.exit(1);
+		}
 	}
 
 	/**
 	 * Prints und Scanner für Koordinatenformeingabe.
+	 * 
 	 * @return neue Ebene anhand von Koordinatenformkonstruktor erstellt.
 	 */
 	private static Ebene koordinatenFormEingabe() {
@@ -115,6 +139,7 @@ public class SchnittVonEbenen {
 
 	/**
 	 * Prints und Scanner für Normalenformeingabe.
+	 * 
 	 * @return neue Ebene anhand von Normalenformkonstruktor erstellt.
 	 */
 	private static Ebene normalenFormEingabe() {
@@ -135,12 +160,13 @@ public class SchnittVonEbenen {
 		r0[1] = sc.nextDouble();
 		System.out.println("Geben Sie r0.3 ein:");
 		r0[2] = sc.nextDouble();
-		
+
 		return new Ebene(n, r0);
 	}
 
 	/**
 	 * Prints und Scanner für Parameterformeingabe.
+	 * 
 	 * @return neue Ebene anhand von Parameterformkonstruktor erstellt.
 	 */
 	private static Ebene parameterFormEingabe() {
@@ -169,7 +195,7 @@ public class SchnittVonEbenen {
 		b[1] = sc.nextDouble();
 		System.out.println("Geben Sie b3 ein:");
 		b[2] = sc.nextDouble();
-		
+
 		return new Ebene(r0, a, b);
 	}
 
