@@ -13,6 +13,7 @@ public class SchnittVonEbenen {
 
 		sc = new Scanner(System.in);
 
+		// Erste Ebene
 		ebene1Start();
 		int auswahl1 = sc.nextInt();
 
@@ -38,6 +39,7 @@ public class SchnittVonEbenen {
 			System.out.println("Falsche Eingabe der ersten Ebene");
 		}
 
+		// Zweite Ebene
 		ebene2Start();
 		int auswahl2 = sc.nextInt();
 
@@ -63,12 +65,16 @@ public class SchnittVonEbenen {
 			System.out.println("Falsche Eingabe der zweiten Ebene");
 		}
 		
+		// Schnitt der Ebenen
 		schnitt = new Schnitt(ebene1, ebene2);
 		schnitt.schnittAusgabe();
 
 		sc.close();
 	}
 
+	/**
+	 * Prints für Ebene 1.
+	 */
 	private static void ebene1Start() {
 		System.out.println("\n--- Schnitt von Ebenen ---\n");
 		System.out.println("Welche Form geben Sie ein? [1 / 2 / 3]");
@@ -77,6 +83,9 @@ public class SchnittVonEbenen {
 		System.out.println("3: Koordinatenform");
 	}
 
+	/**
+	 * Prints für Ebene 2.
+	 */
 	private static void ebene2Start() {
 		System.out.println("\nGeben Sie nun eine zweite Ebene ein.\n");
 		System.out.println("Welche Form geben Sie ein? [1 / 2 / 3]");
@@ -85,6 +94,10 @@ public class SchnittVonEbenen {
 		System.out.println("3: Koordinatenform");
 	}
 
+	/**
+	 * Prints und Scanner für Koordinatenformeingabe.
+	 * @return neue Ebene anhand von Koordinatenformkonstruktor erstellt.
+	 */
 	private static Ebene koordinatenFormEingabe() {
 		System.out.println("Koordinatenform: Ax + By + Cz + D = 0");
 
@@ -100,6 +113,10 @@ public class SchnittVonEbenen {
 		return new Ebene(A, B, C, D);
 	}
 
+	/**
+	 * Prints und Scanner für Normalenformeingabe.
+	 * @return neue Ebene anhand von Normalenformkonstruktor erstellt.
+	 */
 	private static Ebene normalenFormEingabe() {
 		System.out.println("Normalenform: n \u2218 (r - r0) = 0");
 
@@ -122,6 +139,10 @@ public class SchnittVonEbenen {
 		return new Ebene(n, r0);
 	}
 
+	/**
+	 * Prints und Scanner für Parameterformeingabe.
+	 * @return neue Ebene anhand von Parameterformkonstruktor erstellt.
+	 */
 	private static Ebene parameterFormEingabe() {
 		System.out.println("Parameterform: r = r0 + ta + sb");
 

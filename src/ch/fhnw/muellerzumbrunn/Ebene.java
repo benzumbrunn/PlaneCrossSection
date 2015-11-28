@@ -17,7 +17,7 @@ public class Ebene {
 	double D;
 
 	/**
-	 * Parameterformkonstruktor
+	 * Parameterformkonstruktor.
 	 */
 	public Ebene(double[] r0, double[] a, double[] b) {
 		initialisierung();
@@ -31,7 +31,7 @@ public class Ebene {
 	}
 
 	/**
-	 * Normalenformkonstruktor
+	 * Normalenformkonstruktor.
 	 */
 	public Ebene(double[] n, double[] r0) {
 		initialisierung();
@@ -44,7 +44,7 @@ public class Ebene {
 	}
 
 	/**
-	 * Koordinatenformkonstruktor
+	 * Koordinatenformkonstruktor.
 	 */
 	public Ebene(double A, double B, double C, double D) {
 		initialisierung();
@@ -58,20 +58,29 @@ public class Ebene {
 		parameterZuNormalenForm();
 	}
 
-	public void parameterZuNormalenForm() {
+	/**
+	 * Berechnung des Vektors n der Ebene.
+	 */
+	private void parameterZuNormalenForm() {
 		n[0] = (a[1] * b[2]) - (a[2] * b[1]);
 		n[1] = (a[2] * b[0]) - (a[0] * b[2]);
 		n[2] = (a[0] * b[1]) - (a[1] * b[0]);
 	}
 
-	public void normalenZuKoordinatenForm() {
+	/**
+	 * Berechung der Koordinaten A, B, C und D der Ebene.
+	 */
+	private void normalenZuKoordinatenForm() {
 		A = n[0];
 		B = n[1];
 		C = n[2];
 		D = -(n[0] * r0[0] + n[1] * r0[1] + n[2] * r0[2]);
 	}
 
-	public void koordinatenZuParameterForm() {
+	/**
+	 * Berechnung der Vektoren r0, a und b der Ebene.
+	 */
+	private void koordinatenZuParameterForm() {
 		
 		// Richtungsvektor r0
 		if (A != 0.0) {
@@ -88,6 +97,7 @@ public class Ebene {
 			r0[2] = -D / C;
 		}
 
+		// Stützvektoren a und b
 		if (A == 0.0 && B == 0.0) {
 			a[0] = -C;
 			a[1] = 0;
