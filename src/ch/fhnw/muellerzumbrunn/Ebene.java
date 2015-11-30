@@ -123,6 +123,12 @@ public class Ebene {
 			b[1] = -C;
 			b[2] = B;
 		}
+		
+		if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2]) { // Spezialfall a == b
+		    b[0] = -C;
+		    b[1] = 0;
+		    b[2] = A;
+		}
 	}
 
 	public void parameterFormAusgabe() {
