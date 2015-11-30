@@ -41,7 +41,9 @@ public class Schnitt {
 			ebenenParallel = true;
 
 			double[] r0e2 = ebene2.getr0();
-			if (r0[0] == r0e2[0] && r0[1] == r0e2[1] && r0[2] == r0e2[2]) {
+			if ((r0[0] == r0e2[0] && r0[1] == r0e2[1] && r0[2] == r0e2[2]) // r0 ist gleich
+			        || (A == ebene1.getA() && B == ebene1.getB() && C == ebene1.getC() && D == ebene1.getD())) {
+			            // Ebenen sind in Koordinatenform gleich
 				// Ebenen sind gleich
 				ebenenGleich = true;
 			}
