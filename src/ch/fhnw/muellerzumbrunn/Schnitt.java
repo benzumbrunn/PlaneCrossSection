@@ -35,8 +35,8 @@ public class Schnitt {
 	private void schnittBerechnung() {
 		double pZaehler = A * b[0] + B * b[1] + C * b[2];
 		double pNenner = A * a[0] + B * a[1] + C * a[2];
-
-		if (pZaehler == 0.0 && pNenner == 0.0) {
+		
+		if (pNenner == 0.0) {
 			// Ebenen sind parallel, Schnittgerade wird nicht berechnet
 			ebenenParallel = true;
 
